@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View product details and add to cart on NearNest.">
+    <title>Product Details - NearNest</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-logo">
+                <img src="assets/images/logo.png" alt="NearNest Logo">
+                <span>NearNest</span>
+            </a>
+
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="navbar-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="cart.html" class="cart-link">
+                        🛒 Cart
+                        <span class="cart-badge">0</span>
+                    </a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Product Detail Section -->
+    <section>
+        <div class="container">
+            <div style="margin-bottom: var(--spacing-4);">
+                <a href="products.html"
+                    style="color: var(--color-primary); display: inline-flex; align-items: center; gap: var(--spacing-2);">
+                    ← Back to Products
+                </a>
+            </div>
+
+            <div class="product-detail">
+                <!-- Product Image -->
+                <div>
+                    <img src="" alt="Product" id="product-image" class="product-image-main">
+                </div>
+
+                <!-- Product Info -->
+                <div class="product-info">
+                    <h1 id="product-name">Product Name</h1>
+
+                    <div class="product-meta">
+                        <div>
+                            <div style="font-size: var(--font-size-3xl); font-weight: 700; color: var(--color-primary);"
+                                id="product-price">
+                                ₹0.00
+                            </div>
+                        </div>
+                        <div>
+                            <div class="product-rating" id="product-rating">
+                                ⭐⭐⭐⭐⭐
+                            </div>
+                            <div class="product-location" id="product-location">
+                                📍 Location
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: var(--spacing-6);">
+                        <h3 style="margin-bottom: var(--spacing-3); font-size: var(--font-size-lg);">Description</h3>
+                        <p class="product-description" id="product-description">
+                            Product description will appear here.
+                        </p>
+                    </div>
+
+                    <div class="seller-info">
+                        <h3>Seller Information</h3>
+                        <div style="display: flex; gap: var(--spacing-4); margin-top: var(--spacing-2);">
+                            <div>
+                                <strong>Location:</strong>
+                                <span id="seller-location">Local Seller</span>
+                            </div>
+                            <div>
+                                <strong>Rating:</strong>
+                                <span id="seller-rating">⭐ Excellent</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quantity-selector">
+                        <label style="font-weight: 600; font-size: var(--font-size-lg);">Quantity:</label>
+                        <div class="quantity-controls">
+                            <button class="quantity-btn" id="decrease-qty" aria-label="Decrease quantity">-</button>
+                            <span class="quantity-display" id="quantity-display">1</span>
+                            <button class="quantity-btn" id="increase-qty" aria-label="Increase quantity">+</button>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary btn-lg" id="add-to-cart" style="width: 100%;">
+                        🛒 Add to Cart
+                    </button>
+
+                    <button class="btn btn-secondary" onclick="window.location.href='products.html'"
+                        style="width: 100%; margin-top: var(--spacing-3);">
+                        Continue Shopping
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Products (Optional) -->
+    <section style="background-color: var(--color-white);">
+        <div class="container">
+            <div class="section-header">
+                <h2>You May Also Like</h2>
+                <p>More great products from local sellers</p>
+            </div>
+            <div style="text-align: center; padding: var(--spacing-8); color: var(--color-gray-500);">
+                <p>Explore more products in our <a href="products.html"
+                        style="color: var(--color-primary); font-weight: 600;">product catalog</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About NearNest</h3>
+                    <p style="margin-top: var(--spacing-3); line-height: 1.8;">
+                        NearNest connects you with local sellers and unique products in your community.
+                        We believe in supporting small businesses and celebrating local craftsmanship.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">All Products</a></li>
+                        <li><a href="cart.html">Shopping Cart</a></li>
+                        <li><a href="#about">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#shipping">Shipping Info</a></li>
+                        <li><a href="#returns">Returns</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="#facebook" aria-label="Facebook">📘</a>
+                        <a href="#instagram" aria-label="Instagram">📷</a>
+                        <a href="#twitter" aria-label="Twitter">🐦</a>
+                        <a href="#email" aria-label="Email">✉️</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 NearNest. All rights reserved. Built with ❤️ for local communities.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>

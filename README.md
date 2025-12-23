@@ -1,0 +1,162 @@
+# NearNest - Local Sellers E-commerce Platform
+
+![NearNest Logo](assets/images/logo.png)
+
+## 🌟 Discover What's Local
+
+NearNest is a simple, elegant e-commerce website that connects you with local sellers in your community. Built with pure HTML, CSS, and vanilla JavaScript.
+
+## ✨ Features
+
+- 🏠 **Home Page** - Hero section with featured categories and products
+- 📦 **Product Catalog** - Browse 20+ products from local sellers
+- 🔍 **Smart Filtering** - Filter by category and price range
+- 🛒 **Shopping Cart** - Full cart management with localStorage persistence
+- 📱 **Fully Responsive** - Works beautifully on mobile, tablet, and desktop
+- 🎨 **Modern Design** - Clean UI with smooth animations
+
+## 🚀 Quick Start
+
+1. **Open the website**
+   ```
+   Simply open index.html in your web browser
+   ```
+
+2. **That's it!** No installation, no build process, no dependencies.
+
+## 📁 Project Structure
+
+```
+nearnest/
+├── index.html          # Home page
+├── products.html       # Product listing page
+├── product.html        # Product detail page
+├── cart.html          # Shopping cart
+├── css/
+│   └── styles.css     # Complete styling (1000+ lines)
+├── js/
+│   └── script.js      # All functionality (600+ lines)
+└── assets/
+    └── images/
+        └── logo.png   # NearNest logo
+```
+
+## 🎨 Design
+
+**Brand Colors:**
+- Primary: #2F855A (Green)
+- Secondary: #EDF7F2 (Light Green)
+- Accent: #F6AD55 (Orange)
+
+**Typography:**
+- Modern sans-serif stack with Inter/Poppins fallbacks
+
+## 🛠️ Technology Stack
+
+- **HTML5** - Semantic markup
+- **CSS3** - Custom properties, flexbox, grid
+- **Vanilla JavaScript** - No frameworks, no libraries
+- **localStorage** - Client-side data persistence
+
+## 📦 Features in Detail
+
+### Home Page
+- Sticky navigation with cart badge
+- Hero section with gradient
+- 6 featured categories
+- Featured products showcase
+- Why Choose NearNest section
+
+### Products Page
+- Dynamic product rendering
+- Category filters (checkboxes)
+- Price range filtering
+- Responsive product grid
+- 20 mock products
+
+### Product Detail Page
+- URL parameter-based routing
+- Image and full description
+- Seller information
+- Quantity selector
+- Add to cart functionality
+
+### Shopping Cart
+- View all cart items
+- Adjust quantities
+- Remove items
+- Price calculations (subtotal + delivery)
+- Empty cart state
+- Persist across sessions
+
+## 🧪 Testing
+
+All features have been thoroughly tested:
+- ✅ Navigation between pages
+- ✅ Cart add/update/remove
+- ✅ Product filtering
+- ✅ localStorage persistence
+- ✅ Responsive design (375px - 1920px)
+
+## 📱 Responsive Breakpoints
+
+- **Mobile**: < 768px
+- **Tablet**: 768px - 1024px
+- **Desktop**: > 1024px
+
+## 🎯 Mock Data
+
+The website includes 20 mock products across 6 categories:
+- Food & Beverages
+- Home & Garden
+- Fashion
+- Electronics
+- Sports & Fitness
+- Stationery
+
+## 🔧 Customization
+
+### Adding Products
+Edit the `MOCK_PRODUCTS` array in `js/script.js`:
+
+```javascript
+{
+  id: 21,
+  name: "Your Product",
+  price: 29.99,
+  category: "Category Name",
+  location: "Your Location",
+  rating: 4.5,
+  image: "https://example.com/image.jpg",
+  description: "Product description here"
+}
+```
+
+### Changing Colors
+Edit CSS custom properties in `css/styles.css`:
+
+```css
+:root {
+  --color-primary: #2F855A;
+  --color-accent: #F6AD55;
+  /* ... other colors */
+}
+```
+
+## 📄 License
+
+This is a demo project created for educational purposes.
+
+## 🤝 Contributing
+
+This is a standalone demo project. Feel free to fork and customize for your own needs!
+
+## 📞 Support
+
+For questions or issues, please refer to the code comments in the source files.
+
+---
+
+**Built with ❤️ for local communities**
+
+*NearNest - Support Local. Shop Nearby.*
