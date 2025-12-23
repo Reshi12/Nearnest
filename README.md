@@ -22,8 +22,6 @@ NearNest is a simple, elegant e-commerce website that connects you with local se
    Simply open index.html in your web browser
    ```
 
-2. **That's it!** No installation, no build process, no dependencies.
-
 ## 📁 Project Structure
 
 ```
@@ -89,31 +87,6 @@ nearnest/
 - Empty cart state
 - Persist across sessions
 
-## 🧪 Testing
-
-All features have been thoroughly tested:
-- ✅ Navigation between pages
-- ✅ Cart add/update/remove
-- ✅ Product filtering
-- ✅ localStorage persistence
-- ✅ Responsive design (375px - 1920px)
-
-## 📱 Responsive Breakpoints
-
-- **Mobile**: < 768px
-- **Tablet**: 768px - 1024px
-- **Desktop**: > 1024px
-
-## 🎯 Mock Data
-
-The website includes 20 mock products across 6 categories:
-- Food & Beverages
-- Home & Garden
-- Fashion
-- Electronics
-- Sports & Fitness
-- Stationery
-
 ## 🔧 Customization
 
 ### Adding Products
@@ -142,21 +115,3 @@ Edit CSS custom properties in `css/styles.css`:
   /* ... other colors */
 }
 ```
-
-## 📄 License
-
-This is a demo project created for educational purposes.
-
-## 🤝 Contributing
-
-This is a standalone demo project. Feel free to fork and customize for your own needs!
-
-## 📞 Support
-
-For questions or issues, please refer to the code comments in the source files.
-
----
-
-**Built with ❤️ for local communities**
-
-*NearNest - Support Local. Shop Nearby.*
