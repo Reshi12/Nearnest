@@ -7,6 +7,7 @@
 NearNest is a simple, elegant e-commerce website that connects you with local sellers in your community. Built with pure HTML, CSS, and vanilla JavaScript.
 
 ## HI CHANGES MADE
+## more chnages made
 
 
 ## ✨ Features
