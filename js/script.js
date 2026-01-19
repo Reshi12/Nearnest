@@ -1,4 +1,4 @@
- 
+
 // ========================================
 // NearNest E-commerce - JavaScript
 // ========================================
@@ -114,6 +114,16 @@ const MOCK_PRODUCTS = [
         rating: 4.8,
         image: "https://images.unsplash.com/photo-1603006905003-be475563bc59?w=400",
         description: "Set of 3 handpoured scented candles. Natural soy wax with essential oils."
+    },
+    {
+        id: 12,
+        name: "Books",
+        price: 2199.00,
+        category: "Stationery",
+        location: "Local Library",
+        rating: 4.9,
+        image: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=400",
+        description: "Collection of bestselling books from local and international authors. Perfect for book lovers."
     },
 
     {
@@ -568,11 +578,11 @@ function initCartPage() {
             const address = (checkoutForm.querySelector('[name="address"]') || {}).value || '';
             const phone = (checkoutForm.querySelector('[name="phone"]') || {}).value || '';
             if (!fullname.trim() || !address.trim() || !phone.trim()) {
-                showNotification ('Please fill out all shipping fields', 'error');
+                showNotification('Please fill out all shipping fields', 'error');
                 return;
             }
 
-            checkoutForm.reset(); 
+            checkoutForm.reset();
 
             showNotification('THANK YOU', 'success');
         });
