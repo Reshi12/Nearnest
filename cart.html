@@ -43,6 +43,8 @@
                 <p>Review your items and proceed to checkout</p>
             </div>
 
+  
+
             <!-- Empty Cart State -->
             <div id="empty-cart" class="empty-cart" style="display: none;">
                 <div class="empty-cart-icon">🛒</div>
@@ -67,6 +69,17 @@
                     <div id="cart-summary-details">
                         <!-- Summary will be rendered by JavaScript -->
                     </div>
+                    <!-- Simple checkout form -->
+                    <form id="checkout-form" class="checkout-form" style="margin-top: var(--spacing-4);">
+                        <h3 style="margin-bottom: var(--spacing-3);">Shipping Details</h3>
+                        <div style="display: flex; flex-direction: column; gap: var(--spacing-2);">
+                            <input type="text" name="fullname" placeholder="Full name" required style="padding: 8px;" />
+                            <input type="text" name="address" placeholder="Address" required style="padding: 8px;" />
+                            <input type="tel" name="phone" placeholder="Phone number" required style="padding: 8px;" />
+                        </div>
+                        <div id="order-message" style="display: none; margin-top: var(--spacing-3); font-weight: 700; color: var(--color-primary);">THANK YOU</div>
+                        <button type="button" id="place-order-btn" class="btn btn-primary" style="width: 100%; margin-top: var(--spacing-3);">Place Order</button>
+                    </form>
                     <button class="btn btn-primary btn-lg" id="checkout-btn"
                         style="width: 100%; margin-top: var(--spacing-4);">
                         Proceed to Checkout

@@ -1,3 +1,4 @@
+ 
 // ========================================
 // NearNest E-commerce - JavaScript
 // ========================================
@@ -557,6 +558,25 @@ function initCartPage() {
             showNotification('Checkout feature coming soon! Thank you for shopping at NearNest.', 'success');
         });
     }
+    // Place order handling: clear form and show THANK YOU
+    const placeOrderBtn = document.getElementById('place-order-btn');
+    const checkoutForm = document.getElementById('checkout-form');
+    const orderMessage = document.getElementById('order-message');
+    if (placeOrderBtn && checkoutForm) {
+        placeOrderBtn.addEventListener('click', () => {
+            const fullname = (checkoutForm.querySelector('[name="fullname"]') || {}).value || '';
+            const address = (checkoutForm.querySelector('[name="address"]') || {}).value || '';
+            const phone = (checkoutForm.querySelector('[name="phone"]') || {}).value || '';
+            if (!fullname.trim() || !address.trim() || !phone.trim()) {
+                showNotification ('Please fill out all shipping fields', 'error');
+                return;
+            }
+
+            checkoutForm.reset(); 
+
+            showNotification('THANK YOU', 'success');
+        });
+    }
 }
 
 function renderCart() {
@@ -646,6 +666,8 @@ function removeItem(productId) {
 function filterByCategory(categoryName) {
     window.location.href = `products.html?category=${encodeURIComponent(categoryName)}`;
 }
+
+
 
 // ========================================
 // Mobile Menu Toggle
