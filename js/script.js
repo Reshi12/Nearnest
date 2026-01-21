@@ -3,6 +3,62 @@
 // NearNest E-commerce - JavaScript
 // ========================================
 
+// Dark Mode Management
+function initDarkMode() {
+    const savedTheme = localStorage.getItem('nearnest_theme') || 'light';
+    const isDark = savedTheme === 'dark';
+    
+    if (isDark) {
+        document.body.classList.add('dark-mode');
+        updateThemeToggle(true);
+    }
+}
+
+function toggleDarkMode() {
+    const isDark = document.body.classList.toggle('dark-mode');
+    localStorage.setItem('nearnest_theme', isDark ? 'dark' : 'light');
+    updateThemeToggle(isDark);
+}
+
+function updateThemeToggle(isDark) {
+    const toggle = document.getElementById('theme-toggle');
+    if (toggle) {
+        toggle.textContent = isDark ? '☀️' : '🌙';
+    }
+}
+
+// User Login Status Management
+function updateLoginStatus() {
+    const user = JSON.parse(localStorage.getItem('nearnest_user'));
+    const loginLink = document.querySelector('.login-link');
+    
+    if (loginLink) {
+        if (user && user.loggedIn) {
+            // Extract email name (before @)
+            const emailName = user.email.split('@')[0];
+            loginLink.textContent = `👤 ${emailName}`;
+            loginLink.href = '#';
+            loginLink.onclick = (e) => {
+                e.preventDefault();
+                handleLogout();
+            };
+        } else {
+            loginLink.textContent = '👤 Login';
+            loginLink.href = 'login.html';
+            loginLink.onclick = null;
+        }
+    }
+}
+
+function handleLogout() {
+    if (confirm('Are you sure you want to logout?')) {
+        localStorage.removeItem('nearnest_user');
+        updateLoginStatus();
+        showNotification('Logged out successfully!', 'success');
+        window.location.href = 'index.html';
+    }
+}
+
 // Mock Data
 const MOCK_PRODUCTS = [
     {
@@ -87,13 +143,13 @@ const MOCK_PRODUCTS = [
     },
     {
         id: 9,
-        name: "Wireless Headphones",
-        price: 6499.00,
-        category: "Electronics",
-        location: "Tech Hub",
-        rating: 4.5,
-        image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400",
-        description: "High-quality wireless headphones with excellent sound quality and comfort."
+        name: "Hand-Painted Canvas Art",
+        price: 4999.00,
+        category: "Art & Decor",
+        location: "Art Studio",
+        rating: 4.8,
+        image: "https://images.unsplash.com/photo-1578301978162-7aae4d755744?w=400",
+        description: "Beautiful hand-painted canvas art by local artists. Perfect for decorating your home."
     },
     {
         id: 10,
@@ -128,13 +184,13 @@ const MOCK_PRODUCTS = [
 
     {
         id: 13,
-        name: "Digital Smart Watch",
-        price: 9999.00,
-        category: "Electronics",
-        location: "Smart Devices",
-        rating: 4.6,
-        image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400",
-        description: "Feature-packed smart watch with fitness tracking and notification support."
+        name: "Handmade Wooden Jewelry Box",
+        price: 3499.00,
+        category: "Home & Garden",
+        location: "Woodcraft Workshop",
+        rating: 4.9,
+        image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400",
+        description: "Beautifully crafted wooden jewelry box with intricate carved details. Locally handmade."
     },
     {
         id: 14,
@@ -169,13 +225,13 @@ const MOCK_PRODUCTS = [
     },
     {
         id: 18,
-        name: "Bluetooth Speaker",
-        price: 4299.00,
-        category: "Electronics",
-        location: "Audio Zone",
-        rating: 4.7,
-        image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400",
-        description: "Portable Bluetooth speaker with powerful sound and long battery life."
+        name: "Handcrafted Wooden Frame",
+        price: 2299.00,
+        category: "Art & Decor",
+        location: "Frame Workshop",
+        rating: 4.8,
+        image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=400",
+        description: "Elegant handcrafted wooden frame perfect for artwork or photos. Made by local craftsmen."
     },
     {
         id: 19,
@@ -199,13 +255,13 @@ const MOCK_PRODUCTS = [
     },
     {
         id: 21,
-        name: "Wireless Earbuds",
-        price: 4999.00,
-        category: "Electronics",
-        location: "Tech Hub",
-        rating: 4.7,
-        image: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400",
-        description: "High-quality wireless earbuds with noise cancellation and long battery life."
+        name: "Organic Soap Set",
+        price: 1599.00,
+        category: "Food & Beverages",
+        location: "Natural Bath Co",
+        rating: 4.9,
+        image: "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400",
+        description: "Handmade organic soap set with natural ingredients. Gentle on skin, made locally."
     }
 ];
 
@@ -213,7 +269,7 @@ const CATEGORIES = [
     { name: "Food & Beverages", icon: "🍯", image: "https://images.unsplash.com/photo-1495195134817-aeb325a55b65?w=300" },
     { name: "Home & Garden", icon: "🏠", image: "https://images.unsplash.com/photo-1484101403633-562f891dc89a?w=300" },
     { name: "Fashion", icon: "👕", image: "https://images.unsplash.com/photo-1445205170230-053b83016050?w=300" },
-    { name: "Electronics", icon: "📱", image: "https://images.unsplash.com/photo-1498049794561-7780e7231661?w=300" },
+    { name: "Art & Decor", icon: "🎨", image: "https://images.unsplash.com/photo-1578301978162-7aae4d755744?w=300" },
     { name: "Sports & Fitness", icon: "⚽", image: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=300" },
     { name: "Stationery", icon: "✏️", image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=300" }
 ];
@@ -439,15 +495,18 @@ function initHomePage() {
 function initProductsPage() {
     let selectedCategories = [];
 
-    // Render all products initially
-    renderProducts(MOCK_PRODUCTS);
+    // Check if there's a category filter from URL
+    const categoryParam = getUrlParameter('category');
+    if (categoryParam) {
+        selectedCategories = [categoryParam];
+    }
 
     // Render category checkboxes
     const categoryFilters = document.getElementById('category-filters');
     if (categoryFilters) {
         categoryFilters.innerHTML = CATEGORIES.map(cat => `
       <div class="filter-option">
-        <input type="checkbox" id="cat-${cat.name}" value="${cat.name}">
+        <input type="checkbox" id="cat-${cat.name}" value="${cat.name}" ${selectedCategories.includes(cat.name) ? 'checked' : ''}>
         <label for="cat-${cat.name}">${cat.name}</label>
       </div>
     `).join('');
@@ -499,6 +558,14 @@ function initProductsPage() {
                 container.innerHTML = products.map(p => renderProductCard(p)).join('');
             }
         }
+    }
+
+    // Render initial products
+    if (categoryParam) {
+        const filtered = filterProducts(selectedCategories, '', '');
+        renderProducts(filtered);
+    } else {
+        renderProducts(MOCK_PRODUCTS);
     }
 }
 
@@ -798,6 +865,18 @@ function initFeedbackForm() {
 // ========================================
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize dark mode
+    initDarkMode();
+    
+    // Dark mode toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', toggleDarkMode);
+    }
+    
+    // Update login status on all pages
+    updateLoginStatus();
+    
     // Update cart badge on all pages
     updateCartBadge();
 
