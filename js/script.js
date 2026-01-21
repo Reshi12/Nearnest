@@ -196,6 +196,16 @@ const MOCK_PRODUCTS = [
         rating: 5.0,
         image: "https://images.unsplash.com/photo-1597318181409-cf64d0b5d8a2?w=400",
         description: "Curated collection of organic herbal teas. Relaxing and healthful blends."
+    },
+    {
+        id: 21,
+        name: "Wireless Earbuds",
+        price: 4999.00,
+        category: "Electronics",
+        location: "Tech Hub",
+        rating: 4.7,
+        image: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400",
+        description: "High-quality wireless earbuds with noise cancellation and long battery life."
     }
 ];
 
