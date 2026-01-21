@@ -106,7 +106,7 @@
   </section>
 
   <!-- Feedback Form -->
-  <section id="feedback-section" style="background-color: var(--color-gray-100);">
+  <section id="feedback-section" style="background: linear-gradient(135deg, rgba(47, 133, 90, 0.05) 0%, rgba(72, 187, 120, 0.05) 100%);">
     <div class="container">
       <div class="section-header">
         <h2>Share Your Feedback</h2>
@@ -115,18 +115,18 @@
       <div style="max-width: 600px; margin: 0 auto;">
         <form id="feedback-form" class="feedback-form">
           <div class="form-group">
-            <label for="feedback-email">Email Address *</label>
+            <label for="feedback-email">Email Address</label>
             <input type="email" id="feedback-email" name="email" required placeholder="your.email@example.com">
             <div id="email-error" class="error-message"></div>
           </div>
           <div class="form-group">
-            <label for="feedback-message">Your Feedback *</label>
-            <textarea id="feedback-message" name="message" required rows="5" placeholder="Tell us what you think..."></textarea>
+            <label for="feedback-message">Your Feedback</label>
+            <textarea id="feedback-message" name="message" required placeholder="Tell us what you think..."></textarea>
           </div>
-          <button type="submit" class="btn btn-primary btn-lg">Submit Feedback</button>
+          <button type="submit" class="btn btn-primary">Submit Feedback</button>
         </form>
-        <div style="text-align: center; margin-top: var(--spacing-4);">
-          <button id="download-feedback-btn" class="btn btn-secondary">Download All Feedback</button>
+        <div style="text-align: center; margin-top: var(--spacing-6);">
+          <button id="download-feedback-btn" class="btn btn-secondary" style="max-width: 600px; width: 100%;">Download All Feedback</button>
         </div>
       </div>
     </div>
