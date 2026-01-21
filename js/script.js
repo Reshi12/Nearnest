@@ -701,6 +701,99 @@ function toggleMobileMenu() {
 }
 
 // ========================================
+// Feedback Form Management
+// ========================================
+
+function validateEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+function saveFeedback(email, message) {
+    const feedback = {
+        email: email,
+        message: message,
+        timestamp: new Date().toISOString(),
+        id: Date.now()
+    };
+
+    const existingFeedback = JSON.parse(localStorage.getItem('nearnest_feedback') || '[]');
+    existingFeedback.push(feedback);
+    localStorage.setItem('nearnest_feedback', JSON.stringify(existingFeedback));
+}
+
+function downloadFeedback() {
+    const feedback = JSON.parse(localStorage.getItem('nearnest_feedback') || '[]');
+
+    if (feedback.length === 0) {
+        showNotification('No feedback to download', 'error');
+        return;
+    }
+
+    let content = 'NearNest Feedback Report\n';
+    content += '=' .repeat(50) + '\n\n';
+
+    feedback.forEach((item, index) => {
+        content += `Feedback #${index + 1}\n`;
+        content += `Date: ${new Date(item.timestamp).toLocaleString()}\n`;
+        content += `Email: ${item.email}\n`;
+        content += `Message:\n${item.message}\n`;
+        content += '-' .repeat(30) + '\n\n';
+    });
+
+    const blob = new Blob([content], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `nearnest_feedback_${new Date().toISOString().split('T')[0]}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    showNotification('Feedback downloaded successfully!', 'success');
+}
+
+function initFeedbackForm() {
+    const feedbackForm = document.getElementById('feedback-form');
+    const emailInput = document.getElementById('feedback-email');
+    const emailError = document.getElementById('email-error');
+    const downloadBtn = document.getElementById('download-feedback-btn');
+
+    if (feedbackForm) {
+        feedbackForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const email = emailInput.value.trim();
+            const message = document.getElementById('feedback-message').value.trim();
+
+            // Reset error message
+            emailError.textContent = '';
+
+            // Validate email
+            if (!validateEmail(email)) {
+                emailError.textContent = 'Please enter a valid email address';
+                emailInput.focus();
+                return;
+            }
+
+            // Save feedback
+            saveFeedback(email, message);
+
+            // Reset form
+            feedbackForm.reset();
+
+            // Show success message
+            showNotification('Thank you for your feedback!', 'success');
+        });
+    }
+
+    if (downloadBtn) {
+        downloadBtn.addEventListener('click', downloadFeedback);
+    }
+}
+
+// ========================================
 // Page Load Initialization
 // ========================================
 
@@ -716,6 +809,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (currentPage === 'index.html' || currentPage === '') {
         initHomePage();
+        initFeedbackForm();
     } else if (currentPage === 'products.html') {
         initProductsPage();
     } else if (currentPage === 'product.html') {
