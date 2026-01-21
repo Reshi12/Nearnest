@@ -275,6 +275,11 @@ body.dark-mode .cart-item-price {
     color: var(--color-primary-light);
 }
 
+body.dark-mode .cart-items {
+    background-color: var(--color-dark-surface);
+    border: 1px solid var(--color-dark-border);
+}
+
 body.dark-mode .cart-summary {
     background-color: var(--color-dark-surface);
     border: 1px solid var(--color-dark-border);
