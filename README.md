@@ -1,7 +1,5 @@
 # NearNest - Local Sellers E-commerce Platform
 
-![NearNest Logo](assets/images/logo.png)
-
 ## 🌟 Discover What's Local
 
 NearNest is a simple, elegant e-commerce website that connects you with local sellers in your community. Built with pure HTML, CSS, and vanilla JavaScript.
